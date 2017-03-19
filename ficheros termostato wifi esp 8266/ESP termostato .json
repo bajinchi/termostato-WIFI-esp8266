@@ -1,0 +1,157 @@
+{
+	"type": "NetIOConfiguration",
+	"version": 2,
+	"connections": [
+		{
+			"name": "connection",
+			"host": "192.168.1.50",
+			"port": 90,
+			"protocol": "http"
+		}
+	],
+	"pages": [
+		{
+			"name": "page",
+			"label": "Termostato",
+			"connection": "connection",
+			"fitToScreen": true,
+			"items": [
+				{
+					"top": 140,
+					"left": 50,
+					"width": 100,
+					"height": 100,
+					"type": "button",
+					"label": "newButton",
+					"shape": "rounded",
+					"background": "45,45,45",
+					"border": "70,70,70",
+					"textcolor": "230,230,230",
+					"icon": "up",
+					"sends": [
+						"/subirT"
+					]
+				},
+				{
+					"top": 140,
+					"left": 170,
+					"width": 100,
+					"height": 100,
+					"type": "button",
+					"label": "newButton",
+					"shape": "rounded",
+					"background": "45,45,45",
+					"border": "70,70,70",
+					"textcolor": "230,230,230",
+					"icon": "down",
+					"sends": [
+						"/bajarT"
+					]
+				},
+				{
+					"top": 350,
+					"left": 100,
+					"width": 120,
+					"height": 120,
+					"type": "button",
+					"label": "newButton",
+					"shape": "circle",
+					"background": "45,45,45",
+					"border": "70,70,70",
+					"textcolor": "230,230,230",
+					"icon": "standby",
+					"sends": [
+						"/estado"
+					]
+				},
+				{
+					"top": 80,
+					"left": 140,
+					"width": 160,
+					"height": 40,
+					"type": "label",
+					"text": "",
+					"textcolor": "230,230,230",
+					"reads": "/target",
+					"parseResponse": "\\d+",
+					"formatResponse": "{0},{1} ºC",
+					"interval": 3000,
+					"fontsize": 40
+				},
+				{
+					"top": 30,
+					"left": 150,
+					"width": 140,
+					"height": 40,
+					"type": "label",
+					"text": "",
+					"textcolor": "230,230,230",
+					"reads": "/real",
+					"parseResponse": "\\d+",
+					"formatResponse": "{0},{1} ºC",
+					"interval": 6000,
+					"fontsize": 40
+				},
+				{
+					"top": 290,
+					"left": 10,
+					"width": 300,
+					"height": 50,
+					"type": "label",
+					"text": "newLabel",
+					"textcolor": "230,230,230",
+					"icon": "red",
+					"reads": "/calefaccion",
+					"interval": 3000,
+					"parseResponse": ".*",
+					"formatResponse": "icon_{0}.png"
+				},
+				{
+					"top": 40,
+					"left": 20,
+					"width": 130,
+					"height": 30,
+					"type": "label",
+					"text": "Temperatura:",
+					"textcolor": "230,230,230",
+					"fontsize": 20
+				},
+				{
+					"top": 90,
+					"left": 10,
+					"width": 160,
+					"height": 30,
+					"type": "label",
+					"text": "Objetivo:",
+					"textcolor": "230,230,230",
+					"fontsize": 20
+				},
+				{
+					"top": 250,
+					"left": 10,
+					"width": 300,
+					"height": 30,
+					"type": "label",
+					"text": "newLabel",
+					"textcolor": "230,230,230",
+					"reads": "/1caldera",
+					"interval": 2000,
+					"parseResponse": ".*",
+					"formatResponse": "{0}"
+				}
+			],
+			"width": 320,
+			"height": 480
+		}
+	],
+	"device": "iPhone",
+	"orientation": "portrait",
+	"name": "ESP termostato ",
+	"description": "",
+	"navigation": "fix",
+	"pagebuttonwidth": "static",
+	"style": "flat",
+	"theme": "dark",
+	"preventSleep": false,
+	"switchOnSwipe": true
+}
